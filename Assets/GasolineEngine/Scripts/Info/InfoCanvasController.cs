@@ -48,6 +48,7 @@ public class InfoCanvasController : MonoBehaviour
             AudioManager.Instance.PlaySFX(showInfoClip);
 
         infoCanvas.SetActive(true);
+        Debug.Log("InfoCanvasController: ShowInfo called with data: " + data.partName);
     }
 
     public void HideInfo()

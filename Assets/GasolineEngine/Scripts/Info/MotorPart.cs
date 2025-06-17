@@ -9,15 +9,12 @@ public class MotorPart : MonoBehaviour
 
     private XRGrabInteractable grabInteractable;
 
-    // Posición y rotación inicial
     private Vector3 initialPosition;
     private Quaternion initialRotation;
 
     private void Awake()
     {
         grabInteractable = GetComponent<XRGrabInteractable>();
-
-        // Guardar transformaciones iniciales
         initialPosition = transform.localPosition;
         initialRotation = transform.localRotation;
     }
@@ -36,12 +33,20 @@ public class MotorPart : MonoBehaviour
 
     private void OnGrabbed(SelectEnterEventArgs args)
     {
-        InfoCanvasController.Instance.ShowInfo(data);
+        // Verifica si el interactor NO es un socket
+        if (!(args.interactorObject is XRSocketInteractor))
+        {
+            InfoCanvasController.Instance.ShowInfo(data);
+        }
     }
 
     private void OnReleased(SelectExitEventArgs args)
     {
-        InfoCanvasController.Instance.HideInfo();
+        // De nuevo, si lo soltó la mano, oculta; si lo soltó un socket, no hace nada.
+        if (!(args.interactorObject is XRSocketInteractor))
+        {
+            InfoCanvasController.Instance.HideInfo();
+        }
     }
 
     public void ResetPart()
@@ -49,13 +54,11 @@ public class MotorPart : MonoBehaviour
         transform.localPosition = initialPosition;
         transform.localRotation = initialRotation;
 
-        // Si tiene Rigidbody y quieres evitar que se mueva bruscamente:
         Rigidbody rb = GetComponent<Rigidbody>();
         if (rb != null)
         {
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
         }
-        
     }
 }
