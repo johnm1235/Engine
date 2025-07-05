@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
     public GameObject PanelMenuHandInfo;
     public GameObject PanelMenuHandAnimation;
 
+
+    public GameObject menuHand;
+
     private void Awake()
     {
         Instance = this;
@@ -31,10 +34,12 @@ public class GameManager : MonoBehaviour
         PanelMenuHandAnimation.SetActive(false);
         PanelMenuHandInfo.SetActive(false);
         PanelMenuHandAssembly.SetActive(false);
+        menuHand.SetActive(false);
     }
 
     public void SetMode(int modeIndex)
     {
+        menuHand.SetActive(true);
         currentMode = (MotorMode)modeIndex;
 
         // Activar/desactivar modos principales
@@ -54,6 +59,7 @@ public class GameManager : MonoBehaviour
 
     public void BackModeMenu()
     {
+        menuHand.SetActive(false);
         canvasMenuMode.SetActive(true);
         animationMode.SetActive(false);
         infoMode.SetActive(false);

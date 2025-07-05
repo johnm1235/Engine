@@ -26,6 +26,6 @@ public class HandOrControllerTracker : MonoBehaviour
         // If the device exposes handData → it’s a hand-tracking device
         bool isHand = device.TryGetFeatureValue(CommonUsages.handData, out Hand _);
 
-        followTarget.SetTarget(isHand ? leftHand : leftController);
+    //    followTarget.SetTarget(isHand ? leftHand : leftController);
     }
 }

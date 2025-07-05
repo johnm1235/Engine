@@ -1,37 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
 
 public class FollowTarget : MonoBehaviour
 {
-    public Transform leftHand;
-    public Transform leftController;
-    public Vector3 positionOffset = Vector3.zero;
+    public Transform leftHand;         // Asignar en el inspector
+    public Transform leftController;   // Asignar en el inspector
+    public Vector3 positionOffset = new Vector3(0.1f, 0.0f, 0.1f); // Ajustable
     public Vector3 rotationOffset = Vector3.zero;
 
-    void LateUpdate()
+    private Transform currentTarget;
+
+    void Update()
     {
-        if (leftHand != null && leftController != null)
+        // Detectar si la mano izquierda está activa
+        bool isHandActive = false;
+        InputDevice leftDevice = InputDevices.GetDeviceAtXRNode(XRNode.LeftHand);
+        if (leftDevice.isValid && leftDevice.TryGetFeatureValue(CommonUsages.isTracked, out bool isTracked) && isTracked)
         {
-            Vector3 averagePosition = (leftHand.position + leftController.position) / 2f;
-            transform.position = averagePosition + transform.TransformVector(positionOffset);
-            transform.rotation = Quaternion.Slerp(leftHand.rotation, leftController.rotation, 0.5f)
-                                  * Quaternion.Euler(rotationOffset);
+            isHandActive = true;
+        }
+        // Elegir target actual
+        if (isHandActive && leftHand != null)
+        {
+            currentTarget = leftHand;
         }
         else if (leftController != null)
         {
-            transform.position = leftController.position + leftController.TransformVector(positionOffset);
-            transform.rotation = leftController.rotation * Quaternion.Euler(rotationOffset);
-        }
-        else if (leftHand != null)
-        {
-            transform.position = leftHand.position + leftHand.TransformVector(positionOffset);
-            transform.rotation = leftHand.rotation * Quaternion.Euler(rotationOffset);
+            currentTarget = leftController;
         }
     }
 
-    public void SetTarget(Transform newTarget)
+    void LateUpdate()
     {
-        leftController = newTarget;
+        if (currentTarget == null) return;
+
+        // Posición con offset en el espacio local del target (más confiable)
+        transform.position = currentTarget.TransformPoint(positionOffset);
+        transform.rotation = currentTarget.rotation * Quaternion.Euler(rotationOffset);
     }
 }
