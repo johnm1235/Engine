@@ -1,3 +1,4 @@
+using Jsgaona;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -71,6 +72,6 @@ public class GameManager : MonoBehaviour
 
     public void BackToMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneLoadingManager.SceneInstance.LoadGameScene("MainMenu");
     }
 }

@@ -9,7 +9,6 @@ public class MainMenu : MonoBehaviour
     public void PlayGasolineEngine()
     {
        SceneLoadingManager.SceneInstance.LoadGameScene("GasolineEngineScene");
-
     }
 
     public void PlayDieselEngine()

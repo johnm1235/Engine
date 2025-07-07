@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
@@ -28,15 +28,29 @@ namespace Jsgaona {
 
         // Metodo de llamada de Unity, se llama una unica vez al iniciar el aplicativo
         // Se declaran todos los componentes necesarios para el funcionamiento del script
-        private void Awake(){
-            // Asegura que solo haya una instancia de esta clase 'Patron de disenio Singleton'
-            if(SceneInstance == null) {
+        private void Awake()
+        {
+            if (SceneInstance == null)
+            {
                 SceneInstance = this;
                 DontDestroyOnLoad(gameObject);
-            }else{
-                Destroy(gameObject);
+            }
+            else
+            {
+                // Si esta escena es la misma que se cargó inicialmente, reemplaza la instancia anterior
+                if (SceneManager.GetActiveScene().name == "MainMenu")
+                {
+                    SceneInstance = this;
+                    DontDestroyOnLoad(gameObject);
+                }
+                else
+                {
+                    Destroy(gameObject);
+                }
             }
         }
+
+
 
 
         // Metodo de llamada de Unity, se llama una unica vez cuando el objeto es destruido

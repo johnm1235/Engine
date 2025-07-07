@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 public class AssemblyStep : MonoBehaviour
@@ -14,15 +13,12 @@ public class AssemblyStep : MonoBehaviour
     [Header("Objeto al que se unirá este paso cuando se complete")]
     public Transform newParentOnComplete;
 
-
     private bool isCompleted = false;
-
 
     public void SetActive(bool active)
     {
         pieceRoot.SetActive(active);
 
-        // Activar / desactivar TODAS las sub-piezas
         if (subpieceValidators != null)
         {
             foreach (var sub in subpieceValidators)
@@ -43,12 +39,10 @@ public class AssemblyStep : MonoBehaviour
     {
         isCompleted = false;
 
-        // Reposiciona la pieza raíz
         pieceRoot.transform.SetPositionAndRotation(
             startPosition.position,
             startPosition.rotation);
 
-        // Resetea todas las sub-piezas y las mantiene activas
         if (subpieceValidators != null)
         {
             foreach (var sub in subpieceValidators)
@@ -59,33 +53,39 @@ public class AssemblyStep : MonoBehaviour
         }
     }
 
-
     private void Update()
     {
-        if (isCompleted) return;
+        // Si no hay sub-piezas, salir
         if (subpieceValidators == null || subpieceValidators.Count == 0) return;
 
-        // ¿Están TODAS completas?
-        bool allOK = true;
+        // Cada vez que una sub-pieza se complete, hacerla hija inmediatamente
         foreach (var sub in subpieceValidators)
         {
-            if (!sub.IsStepComplete())
+            // Verifica si está completa y aún no está bajo el nuevo padre
+            if (sub.IsStepComplete() && sub.transform.parent != newParentOnComplete)
             {
-                allOK = false;
-                break;
+                sub.transform.SetParent(newParentOnComplete);
             }
         }
 
-        if (allOK)
+        // Revisar si todas están listas para marcar el paso completado
+        if (!isCompleted)
         {
-            isCompleted = true;
-            // HACER HIJO DEL NUEVO PADRE
-            if (newParentOnComplete != null)
+            bool allOK = true;
+            foreach (var sub in subpieceValidators)
             {
-                this.transform.SetParent(newParentOnComplete);
+                if (!sub.IsStepComplete())
+                {
+                    allOK = false;
+                    break;
+                }
             }
-            FindObjectOfType<AssemblyManager>().OnStepCompleted();
+
+            if (allOK)
+            {
+                isCompleted = true;
+                FindObjectOfType<AssemblyManager>().OnStepCompleted();
+            }
         }
     }
-
 }
