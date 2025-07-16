@@ -76,7 +76,7 @@ public class CarouselUIController : MonoBehaviour
                 // Paso finalizado
                 img.color = iconDataList[i].color;
                 icons[i].transform.localScale = Vector3.one * 1f;
-                btn.interactable = false; // desactivado al estar ya completado
+             //   btn.interactable = false; // desactivado al estar ya completado
                 textMeshPro.gameObject.SetActive(false);
             }
             else if (i == currentIndex)
@@ -84,7 +84,7 @@ public class CarouselUIController : MonoBehaviour
                 // Paso actual
                 img.color = iconDataList[i].color;
                 icons[i].transform.localScale = Vector3.one * 2f;
-                btn.interactable = true; // habilitado al ser el paso activo
+             //   btn.interactable = true; // habilitado al ser el paso activo
                 textMeshPro.gameObject.SetActive(true);
             }
             else
@@ -92,7 +92,7 @@ public class CarouselUIController : MonoBehaviour
                 // Futuros pasos
                 img.color = Color.gray;
                 icons[i].transform.localScale = Vector3.one * 1f;
-                btn.interactable = false; // desactivado al ser un paso futuro
+             //   btn.interactable = false; // desactivado al ser un paso futuro
                 textMeshPro.gameObject.SetActive(false);
             }
         }

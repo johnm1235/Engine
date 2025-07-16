@@ -45,6 +45,7 @@ public class AssemblyManager : MonoBehaviour
 
         if (currentStepIndex < steps.Count)
         {
+            steps[currentStepIndex].gameObject.SetActive(true);
             steps[currentStepIndex].SetActive(true);
         }
         else

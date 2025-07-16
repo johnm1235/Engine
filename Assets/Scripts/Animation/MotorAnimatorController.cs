@@ -18,7 +18,6 @@ public class MotorAnimatorController : MonoBehaviour
     // NUEVO: Clips de audio para cada estado
     [Header("Audio Clips")]
     public AudioClip startMotorClip;
-    public AudioClip stopMotorClip;
     public AudioClip disassembleClip;
 
     void Start()
@@ -50,8 +49,8 @@ public class MotorAnimatorController : MonoBehaviour
         }
         else
         {
-            if (stopMotorClip != null)
-                AudioManager.Instance.PlaySFX(stopMotorClip);
+            if (startMotorClip != null)
+                AudioManager.Instance.StopSFX(startMotorClip);
 
             motorAnimator.Play("Idle");
         }
