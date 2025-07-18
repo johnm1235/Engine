@@ -101,4 +101,20 @@ public class MotorAnimatorController : MonoBehaviour
             motorAnimator.speed = 1;
         }
     }
+    public void ResetTogglesAndSlider()
+    {
+        sliderDesarmar.value = 0; // Reinicia el slider al valor inicial
+        toggleIsRunning.isOn = false;
+        toggleStartDesarmar.isOn = false;
+
+        sliderDesarmar.gameObject.SetActive(false);
+        isRunning = false;
+        isDesarmando = false;
+        motorAnimator.SetBool("IsRunning", false);
+        motorAnimator.SetBool("StartDesarmar", false);
+
+        motorAnimator.Play("Idle", 0, 0f); // Fuerza el frame inicial
+        motorAnimator.Rebind();            // Reinicia el Animator completamente
+        motorAnimator.Update(0);           // Aplica el reinicio inmediatamente
+    }
 }

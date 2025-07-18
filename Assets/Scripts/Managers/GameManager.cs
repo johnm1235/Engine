@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject menuHand;
 
+    public MotorAnimatorController motorAnimatorController;
+
     private void Awake()
     {
         Instance = this;
@@ -60,6 +62,8 @@ public class GameManager : MonoBehaviour
 
     public void BackModeMenu()
     {
+        if (motorAnimatorController != null)
+            motorAnimatorController.ResetTogglesAndSlider();
         menuHand.SetActive(false);
         canvasMenuMode.SetActive(true);
         animationMode.SetActive(false);

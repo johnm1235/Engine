@@ -10,11 +10,15 @@ public class AssemblyValidator : MonoBehaviour
     public Transform startPosition;
 
     public float positionTolerance = 0.01f;
-    public float rotationTolerance = 5f; 
+    public float rotationTolerance = 5f;
+
+    private Collider[] colliders;
 
     private void Awake()
     {
         grabInteractable = GetComponent<XRGrabInteractable>();
+        // Obtener todos los colliders en este objeto
+        colliders = GetComponents<Collider>();
     }
 
     public bool IsStepComplete()
@@ -26,7 +30,16 @@ public class AssemblyValidator : MonoBehaviour
         // Validar rotación
         float angle = Quaternion.Angle(transform.rotation, correctPosition.rotation);
         if (angle > rotationTolerance) return false;
+
         grabInteractable.enabled = false;
+
+        // Desactivar todos los colliders
+        if (colliders != null)
+        {
+            foreach (var col in colliders)
+                col.enabled = false;
+        }
+
         return true;
     }
 
@@ -36,6 +49,14 @@ public class AssemblyValidator : MonoBehaviour
         {
             transform.SetPositionAndRotation(startPosition.position, startPosition.rotation);
         }
-    }
 
+        // Reactivar los colliders y el grab interactable al resetear
+        if (colliders != null)
+        {
+            foreach (var col in colliders)
+                col.enabled = true;
+        }
+        if (grabInteractable != null)
+            grabInteractable.enabled = true;
+    }
 }

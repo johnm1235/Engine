@@ -15,6 +15,9 @@ public class AssemblyManager : MonoBehaviour
     public AudioClip assemblyCompleteClip;
     public AudioClip resetAssemblyClip;
 
+    [Header("CanvasWin")]
+    public GameObject canvasWin;
+
     private void Start()
     {
         StartAssembly();
@@ -50,13 +53,16 @@ public class AssemblyManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Motor ensamblado completamente!");
+           // Debug.Log("Motor ensamblado completamente!");
+            canvasWin.SetActive(true);
 
             // Reproducir audio de final
             if (assemblyCompleteClip != null)
                 AudioManager.Instance.PlaySFX(assemblyCompleteClip);
         }
     }
+
+
 
     public void ResetAssembly()
     {

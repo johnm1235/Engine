@@ -24,14 +24,16 @@ public class InfoCanvasController : MonoBehaviour
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
 
-        infoCanvas.SetActive(false);
+      //  infoCanvas.SetActive(false);
     }
 
     public void ShowInfo(PartData data)
     {
         partNameText.text = data.partName;
         descriptionText.text = data.description;
-        // ...
+        failuresText.text = data.possibleFailures != null && data.possibleFailures.Length > 0
+            ? string.Join("\n", data.possibleFailures)
+            : "Sin fallas registradas.";
 
         if (data.partSprite != null)
         {
@@ -57,6 +59,6 @@ public class InfoCanvasController : MonoBehaviour
         if (hideInfoClip != null)
             AudioManager.Instance.PlaySFX(hideInfoClip);
 
-        infoCanvas.SetActive(false);
+      //  infoCanvas.SetActive(false);
     }
 }
