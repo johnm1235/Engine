@@ -1,4 +1,4 @@
-using Jsgaona;
+﻿using Jsgaona;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -31,6 +31,8 @@ public class MainMenu : MonoBehaviour
 
     public void QuitGame()
     {
+        PlayerPrefs.DeleteKey("TutorialMostrado"); 
+        PlayerPrefs.Save();
 
         Application.Quit();
         // If we are running in the editor, stop playing the scene

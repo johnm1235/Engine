@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class SlideController : MonoBehaviour
@@ -10,13 +10,32 @@ public class SlideController : MonoBehaviour
 
     private int currentSlide = 0;
 
+    private bool forceShow = false;
+
     void Start()
     {
-
-        // MostrarSlide(currentSlide);
         btnSiguiente.onClick.AddListener(SiguienteSlide);
         btnAnterior.onClick.AddListener(AnteriorSlide);
         btnSaltar.onClick.AddListener(SaltarTutorial);
+    }
+
+    void OnEnable()
+    {
+        if (!forceShow && PlayerPrefs.GetInt("TutorialMostrado", 0) == 1)
+        {
+            gameObject.SetActive(false);
+            return;
+        }
+
+        forceShow = false;
+        currentSlide = 0;
+        MostrarSlide(currentSlide);
+    }
+
+    public void ShowTutorial()
+    {
+        forceShow = true;
+        gameObject.SetActive(true);
     }
 
 
@@ -58,9 +77,10 @@ public class SlideController : MonoBehaviour
 
     void TerminarTutorial()
     {
-        PlayerPrefs.SetInt("TutorialMostrado", 2);
+        PlayerPrefs.SetInt("TutorialMostrado", 1);
         PlayerPrefs.Save();
         gameObject.SetActive(false);
     }
 
 }
+
