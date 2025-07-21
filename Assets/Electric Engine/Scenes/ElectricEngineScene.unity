@@ -1296,8 +1296,8 @@ Transform:
   m_GameObject: {fileID: 78367394}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.08937211, y: -0.15030515, z: 0.20466495}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.089365, y: -0.1503, z: 0.20467}
+  m_LocalScale: {x: 1.0707, y: 1.0707, z: 1.0707}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2898161328393413644}
@@ -2352,7 +2352,7 @@ MonoBehaviour:
   toggleIsRunning: {fileID: 1431911744}
   toggleStartDesarmar: {fileID: 1564987429}
   sliderDesarmar: {fileID: 1445346862}
-  startMotorClip: {fileID: 8300000, guid: dea4738111e63a445a45b7f34e4b4639, type: 3}
+  startMotorClip: {fileID: 8300000, guid: 3bb86f2a7f29bb94d896ec3117ea2276, type: 3}
   disassembleClip: {fileID: 0}
 --- !u!1 &180950392
 GameObject:
@@ -9417,7 +9417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3091080f2f2d7f64f9b436827847b418, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetObject: {fileID: 2898161328393413644}
+  targetObject: {fileID: 1352853301}
   rotationAxis: {x: 1, y: 0, z: 0}
   rotationSpeed: 90
 --- !u!114 &758883225
@@ -13899,7 +13899,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3091080f2f2d7f64f9b436827847b418, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetObject: {fileID: 2898161328393413644}
+  targetObject: {fileID: 1352853301}
   rotationAxis: {x: -1, y: 0, z: 0}
   rotationSpeed: 90
 --- !u!114 &1110597579
@@ -14331,7 +14331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3091080f2f2d7f64f9b436827847b418, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetObject: {fileID: 2898161328393413644}
+  targetObject: {fileID: 1352853301}
   rotationAxis: {x: 0, y: -1, z: 0}
   rotationSpeed: 90
 --- !u!114 &1117800432
@@ -15919,8 +15919,8 @@ Transform:
   m_GameObject: {fileID: 1240089756}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071069, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0.009789422, y: -0.17608035, z: 0.41214728}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_LocalPosition: {x: 0.0046465, y: -0.15774, z: 0.42887}
+  m_LocalScale: {x: 0.011979999, y: 0.011979999, z: 0.011979999}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2898161328393413644}
@@ -16288,7 +16288,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 715493328}
-  - {fileID: 2898161328393413644}
+  - {fileID: 1352853301}
   - {fileID: 385217911}
   - {fileID: 1499035500}
   - {fileID: 1366670181}
@@ -17648,6 +17648,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1344336754}
   m_CullTransparentMesh: 1
+--- !u!1 &1352853300
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1352853301}
+  m_Layer: 0
+  m_Name: Parent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1352853301
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352853300}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2898161328393413644}
+  m_Father: {fileID: 1250885499}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1353810172
 GameObject:
   m_ObjectHideFlags: 0
@@ -19573,7 +19605,7 @@ MonoBehaviour:
   - stepName: 1
     icon: {fileID: 21300000, guid: 2c3117bd8e05b4a4ea5f6266f706bf07, type: 3}
     color: {r: 1, g: 1, b: 1, a: 1}
-    instructions: Ensambla el engranaje secudario
+    instructions: Ensambla el engranaje secundario
   - stepName: 2
     icon: {fileID: 21300000, guid: 5211d811649d474478b2510d19e46a36, type: 3}
     color: {r: 1, g: 1, b: 1, a: 1}
@@ -19581,51 +19613,51 @@ MonoBehaviour:
   - stepName: 3
     icon: {fileID: 21300000, guid: 06312514b45719c418c3ca302559c975, type: 3}
     color: {r: 1, g: 1, b: 1, a: 1}
-    instructions: Ensambla la Carcasa del Motor
+    instructions: Ensambla la carcasa del motor
   - stepName: 4
     icon: {fileID: 21300000, guid: 00b55cac60611914a982933fefbef630, type: 3}
     color: {r: 1, g: 1, b: 1, a: 1}
-    instructions: Ensambla la Placa de Soporte
+    instructions: Ensambla la placa de soporte
   - stepName: 5
     icon: {fileID: 21300000, guid: bdf62451d4c52354f95f37aded5a6eb3, type: 3}
     color: {r: 1, g: 1, b: 1, a: 1}
-    instructions: Ensambla el Rotor
+    instructions: Ensambla el rotor
   - stepName: 6
     icon: {fileID: 21300000, guid: 294a18cbe790cc44797e86adde9a07d5, type: 3}
     color: {r: 1, g: 1, b: 1, a: 1}
-    instructions: Ensambla el Rodamiento del Rotor
+    instructions: Ensambla el rodamiento del rotor
   - stepName: 7
     icon: {fileID: 21300000, guid: 4880f3cb28a98034a902bd0090e77193, type: 3}
     color: {r: 1, g: 1, b: 1, a: 1}
-    instructions: Ensambla el Estator
+    instructions: Ensambla el estator
   - stepName: 8
     icon: {fileID: 21300000, guid: 050d5172eaff8574a8ecb3f6caf8c9e4, type: 3}
     color: {r: 1, g: 1, b: 1, a: 1}
-    instructions: Ensambla el Sensor de Velocidad
+    instructions: Ensambla el sensor de velocidad
   - stepName: 9
     icon: {fileID: 21300000, guid: 5597fd303f1d21b4ea90e0b8b2309228, type: 3}
     color: {r: 1, g: 1, b: 1, a: 1}
-    instructions: Ensambla el Invertor
+    instructions: Ensambla el invertor
   - stepName: 10
     icon: {fileID: 21300000, guid: 4d3e070d28328c2418339148c21aba24, type: 3}
     color: {r: 1, g: 1, b: 1, a: 1}
-    instructions: Ensambla el Enchufe de tres Conectores
+    instructions: Ensambla el enchufe de tres conectores
   - stepName: 11
     icon: {fileID: 21300000, guid: 9a5c344387e611542b00704f0f7969bd, type: 3}
     color: {r: 1, g: 1, b: 1, a: 1}
-    instructions: Ensambla el Colector de enfriamiento Invertor
+    instructions: Ensambla el colector de enfriamiento invertor
   - stepName: 12
     icon: {fileID: 21300000, guid: fe461612939c8854a896b8c4f65c8a45, type: 3}
     color: {r: 1, g: 1, b: 1, a: 1}
-    instructions: Ensambla el Conector de Alto Voltaje
+    instructions: Ensambla el conector de alto voltaje
   - stepName: 13
     icon: {fileID: 21300000, guid: 76e45b28e2b009341848f7d9bb50f606, type: 3}
     color: {r: 1, g: 1, b: 1, a: 1}
-    instructions: Ensambla el Soporte del Motor Delantero Izquierdo
+    instructions: Ensambla el soporte del motor delantero izquierdo
   - stepName: 14
     icon: {fileID: 21300000, guid: 033596ca5a194f948b84b3ff19aab1a9, type: 3}
     color: {r: 1, g: 1, b: 1, a: 1}
-    instructions: Ensambla el Filtro de Aceite
+    instructions: Ensambla el filtro de aceite
   - stepName: 15
     icon: {fileID: 21300000, guid: b02e4bb27578bac48bb099e212124523, type: 3}
     color: {r: 1, g: 1, b: 1, a: 1}
@@ -22412,8 +22444,8 @@ Transform:
   m_GameObject: {fileID: 1679782094}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0092016235, y: -0.09321046, z: 0.6341239}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.0093019, y: -0.093194, z: 0.63267}
+  m_LocalScale: {x: 1.1414, y: 1.1414, z: 1.1414}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2898161328393413644}
@@ -24403,8 +24435,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.1057, y: 1.23618, z: 0.263}
-  m_LocalScale: {x: 0.22956926, y: 0.0069215316, z: 0.009335722}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.35, y: 0.010552527, z: 0.014233189}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1421002256}
   - {fileID: 1269219942}
@@ -25480,7 +25512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3091080f2f2d7f64f9b436827847b418, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetObject: {fileID: 2898161328393413644}
+  targetObject: {fileID: 1352853301}
   rotationAxis: {x: 0, y: 1, z: 0}
   rotationSpeed: 90
 --- !u!114 &1855827564
@@ -37136,8 +37168,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2554533792322272950}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.392}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -37157,7 +37189,7 @@ Transform:
   - {fileID: 1674977811}
   - {fileID: 1240089757}
   - {fileID: 1654487476}
-  m_Father: {fileID: 1250885499}
+  m_Father: {fileID: 1352853301}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2904183598089444438
 GameObject:
