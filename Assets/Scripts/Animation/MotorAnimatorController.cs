@@ -20,6 +20,10 @@ public class MotorAnimatorController : MonoBehaviour
     public AudioClip startMotorClip;
     public AudioClip disassembleClip;
 
+    void Awake()
+    {
+        StartCoroutine(PrewarmAnimation());
+    }
     void Start()
     {
         toggleIsRunning.isOn = false;
@@ -29,6 +33,14 @@ public class MotorAnimatorController : MonoBehaviour
         toggleIsRunning.onValueChanged.AddListener(OnToggleIsRunningChanged);
         toggleStartDesarmar.onValueChanged.AddListener(OnToggleStartDesarmarChanged);
         sliderDesarmar.onValueChanged.AddListener(OnSliderValueChanged);
+    }
+
+    private IEnumerator PrewarmAnimation()
+    {
+        // Reproduce la animación en silencio y la pausa de inmediato
+        motorAnimator.Play("IsRunning");
+        yield return 2; // Espera un frame para que cargue
+        motorAnimator.Play("Idle"); // Vuelve al estado inicial
     }
 
     private void OnToggleIsRunningChanged(bool isOn)
