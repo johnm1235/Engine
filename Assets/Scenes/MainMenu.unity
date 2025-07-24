@@ -3767,8 +3767,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10.511, y: 10.511, z: 10.511}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 20, y: 20, z: 20}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6810,6 +6810,26 @@ PrefabInstance:
     - target: {fileID: 4222684249133874726, guid: 16ab9b8753c44f74896671e4049e7755,
         type: 3}
       propertyPath: m_Colors.m_PressedColor.r
+      value: 0.41960785
+      objectReference: {fileID: 0}
+    - target: {fileID: 4222684249133874726, guid: 16ab9b8753c44f74896671e4049e7755,
+        type: 3}
+      propertyPath: m_Colors.m_SelectedColor.a
+      value: 0.10980392
+      objectReference: {fileID: 0}
+    - target: {fileID: 4222684249133874726, guid: 16ab9b8753c44f74896671e4049e7755,
+        type: 3}
+      propertyPath: m_Colors.m_SelectedColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4222684249133874726, guid: 16ab9b8753c44f74896671e4049e7755,
+        type: 3}
+      propertyPath: m_Colors.m_SelectedColor.g
+      value: 0.6666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 4222684249133874726, guid: 16ab9b8753c44f74896671e4049e7755,
+        type: 3}
+      propertyPath: m_Colors.m_SelectedColor.r
       value: 0.41960785
       objectReference: {fileID: 0}
     - target: {fileID: 4222684249133874726, guid: 16ab9b8753c44f74896671e4049e7755,
